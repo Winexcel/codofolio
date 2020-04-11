@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>CodoBear Dev</title>
+  <base href="/">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="assets/vendor/fontawesome/css/all.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+  <style>
+    html, body {
+      height: 100%;
+    }
+
+    .preloader {
+      position: fixed;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      top:0;
+      left:0;
+      right: 0;
+      bottom: 0;
+      background: #fff;
+      color: var(--secondary-color);
+      font-weight: bold;
+      font-size: 3rem;
+      background: #fff;
+      z-index: 1000;
+    }
+
+    .caption {
+      margin: 0 auto;
+    }
+
+    .cube-loader {
+      width: 73px;
+      height: 73px;
+      margin: 0 auto;
+      margin-top: 49px;
+      position: relative;
+      transform: rotateZ(45deg);
+    }
+
+    .cube-loader .cube {
+      position: relative;
+      transform: rotateZ(45deg);
+      width: 50%;
+      height: 50%;
+      float: left;
+      transform: scale(1.1);
+    }
+
+    .cube-loader .cube:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(52, 73, 94, 1.0);
+      animation: cube-loader 2.76s infinite linear both;
+      transform-origin: 100% 100%;
+    }
+
+    .cube-loader .loader-2 {
+      transform: scale(1.1) rotateZ(90deg);
+    }
+
+    .cube-loader .loader-3 {
+      transform: scale(1.1) rotateZ(180deg);
+    }
+
+    .cube-loader .loader-4 {
+      transform: scale(1.1) rotateZ(270deg);
+    }
+
+    .cube-loader .loader-2:before {
+      animation-delay: 0.35s;
+    }
+
+    .cube-loader .loader-3:before {
+      animation-delay: 0.69s;
+    }
+
+    .cube-loader .loader-4:before {
+      animation-delay: 1.04s;
+    }
+
+
+    @keyframes cube-loader {
+      0%, 10% {
+        transform: perspective(136px) rotateX(-180deg);
+        opacity: 0;
+      }
+      25%, 75% {
+        transform: perspective(136px) rotateX(0deg);
+        opacity: 1;
+      }
+      90%, 100% {
+        transform: perspective(136px) rotateY(180deg);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+<app-root>
+  <div class="preloader">
+    <div id="cube-loader">
+      <div class="caption">
+        <div class="cube-loader">
+          <div class="cube loader-1"></div>
+          <div class="cube loader-2"></div>
+          <div class="cube loader-4"></div>
+          <div class="cube loader-3"></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</app-root>
+</body>
+</html>

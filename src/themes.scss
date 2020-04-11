@@ -1,0 +1,13 @@
+/* THEMES */
+
+/* LIGHT */
+$codo-light-primary: mat-palette($mat-indigo, 800, 100, 500, 50);
+$codo-light-accent:  mat-palette($mat-pink, A200, A100, A400);
+$codo-light-warn:    mat-palette($mat-red);
+$codo-light-theme:   mat-light-theme($codo-light-primary, $codo-light-accent, $codo-light-warn);
+
+/* DARK */
+$codo-dark-primary: mat-palette($mat-blue-grey, 800, 100, 300, 50);
+$codo-dark-accent:  mat-palette($mat-blue, A200, A100, A400);
+$codo-dark-warn:    mat-palette($mat-red);
+$codo-dark-theme:   mat-dark-theme($codo-dark-primary, $codo-dark-accent, $codo-dark-warn);

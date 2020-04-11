@@ -1,0 +1,649 @@
+<app-page-loader></app-page-loader>
+<div
+  [class]="themeName"
+>
+
+  <mat-toolbar color="primary" class="toolbar">
+    <mat-toolbar-row>
+      <button mat-button mat-icon-button class="toolbar-hamburger hamburger">
+        <mat-icon (click)="sidenav.toggle()" class="hamburger">menu</mat-icon>
+      </button>
+
+      <a href="/" mat-button class="toolbar-link">
+        CodoBear
+      </a>
+      <div class="switch switch__theming ml-auto header-toggle">
+        <mat-slide-toggle (change)="changeTheme($event)">{{'toolbar.switchTheme' | translate}}</mat-slide-toggle>
+      </div>
+
+    </mat-toolbar-row>
+  </mat-toolbar>
+
+  <!-- SIDENAV -->
+  <mat-sidenav-container class="mat-container">
+    <mat-sidenav #sidenav mode="over" [fixedTopGap]="64" [fixedInViewport]="true">
+      <mat-nav-list>
+        <a mat-list-item routerLink="." class="sidenav-link">{{'sidenav.main' | translate}}</a>
+        <a mat-list-item routerLink="." class="sidenav-link">{{'sidenav.about' | translate}}</a>
+        <a mat-list-item routerLink="." class="sidenav-link">{{'sidenav.projects' | translate}}</a>
+        <a mat-list-item routerLink="." class="sidenav-link">{{'sidenav.contacts' | translate}}</a>
+      </mat-nav-list>
+
+      <div class="sidenav-lang lang">
+        <div class="lang-header">{{'sidenav.langHeader' | translate}}</div>
+        <div class="sidenav-switch lang-switch" style="position: relative; display: inline-block">
+          <span class="switch-textLeft" *ngIf="slideToggle.checked">RU</span>
+          <mat-slide-toggle #slideToggle class="switch switch__default switch__text"
+                            (change)="handleSwitchLanguageChange($event)"></mat-slide-toggle>
+          <span class="switch-textRight" *ngIf="!slideToggle.checked">EN</span>
+        </div>
+      </div>
+
+
+    </mat-sidenav>
+
+    <!-- CONTENT -->
+    <mat-sidenav-content class="main-container" #mainContainer>
+      <div #topElement id="top"></div>
+
+      <section class="main d-flex justify-content-center align-items-center">
+        <div class="container">
+          <div class="col text-center text-sm-left">
+            <p class="main-text animated fadeInLeft">{{'main.intro' | translate}} <span
+              class="main-name">{{'main.name' | translate}}</span> <br>
+              <span class="main-text" [appTyped]="{typings: typingsTextMain}"></span></p>
+
+            <button class="main-btn btn animated fadeInLeft delay-0-5s"
+                    (click)="aboutSec.scrollIntoView({behavior: 'smooth', block: 'start'})">{{'main.btn' | translate}}</button>
+
+          </div>
+        </div>
+      </section>
+
+      <section #aboutSec id="about" class="about bg-main">
+        <div class="container">
+          <div class="row">
+            <h3 class="header" [ngsReveal]="{container: '.main-container'}">{{'about.header' | translate}}</h3>
+          </div>
+          <div class="row">
+            <div class="col-sm-12 col-md-6 justify-content-center d-flex">
+              <img [ngsReveal]="{container: '.main-container'}" class="about-picture picture-me"
+                   src="../assets/img/me.jpg" alt="">
+            </div>
+            <div class="col-sm-12 col-md-6 d-flex justify-content-center about-text"
+                 [ngsReveal]="{container: '.main-container'}">
+
+              <mat-accordion>
+                <mat-expansion-panel class="about-detailsPanel" (afterExpand)="handleAboutPanelExpand()"
+                                     [(expanded)]="aboutPanelExpanded">
+                  <mat-expansion-panel-header>
+                    <mat-panel-title>
+                      {{'about.details.header' | translate}}
+                    </mat-panel-title>
+                  </mat-expansion-panel-header>
+
+
+                  <mat-list role="list">
+                    <mat-list-item class="about-details"
+                                   role="listitem">{{'about.details.citizenship' | translate}}</mat-list-item>
+                    <mat-list-item class="about-details"
+                                   role="listitem">{{'about.details.nationality' | translate}}</mat-list-item>
+                    <mat-list-item class="about-details" role="listitem">{{'about.details.birthday' | translate}}
+                    </mat-list-item>
+                    <mat-list-item class="about-details"
+                                   role="listitem">{{'about.details.occupation' | translate}}</mat-list-item>
+                    <mat-list-item class="about-details"
+                                   role="listitem">{{'about.details.currentSpecialization' | translate}}</mat-list-item>
+                    <mat-list-item class="about-details" role="listitem">{{'about.details.languages' | translate}}
+                    </mat-list-item>
+                    <mat-list-item class="about-details"
+                                   role="listitem">{{'about.details.living' | translate}}</mat-list-item>
+                    <mat-list-item class="about-details"
+                                   role="listitem">{{'about.details.workPermit' | translate}}</mat-list-item>
+                    <mat-list-item class="about-details"
+                                   role="listitem">{{'about.details.willingnessToRelocate' | translate}}</mat-list-item>
+                    <mat-list-item class="about-details" role="listitem">{{'about.details.education' | translate}}
+                    </mat-list-item>
+                  </mat-list>
+
+
+                  <mat-expansion-panel style="margin: 10px 0">
+                    <mat-expansion-panel-header>
+                      <mat-panel-title>
+                        {{'about.details.stack' | translate}}
+                      </mat-panel-title>
+                    </mat-expansion-panel-header>
+
+
+                    <div class="stack">
+                      <div class="stack-item">
+                        <span class="stack-itemText">HTML5</span>
+                      </div>
+                      <div class="stack-item">
+                        <span class="stack-itemText">CSS3/SASS/SCSS</span>
+                      </div>
+                      <div class="stack-item">
+                        <span class="stack-itemText">JS</span>
+                      </div>
+                      <div class="stack-item">
+                        <span class="stack-itemText">GIT</span>
+                      </div>
+                      <div class="stack-item">
+                        <span class="stack-itemText">React.JS</span>
+                      </div>
+                      <div class="stack-item">
+                        <span class="stack-itemText">Redux</span>
+                      </div>
+                      <div class="stack-item">
+                        <span class="stack-itemText">Angular</span>
+                      </div>
+                      <div class="stack-item">
+                        <span class="stack-itemText">Node.JS</span>
+                      </div>
+                      <div class="stack-item">
+                        <span class="stack-itemText">pm2</span>
+                      </div>
+                      <div class="stack-item">
+                        <span class="stack-itemText">Express.JS</span>
+                      </div>
+                      <div class="stack-item">
+                        <span class="stack-itemText">Postman</span>
+                      </div>
+                      <div class="stack-item">
+                        <span class="stack-itemText">NGINX</span>
+                      </div>
+                      <div class="stack-item">
+                        <span class="stack-itemText">Docker</span>
+                      </div>
+                      <div class="stack-item">
+                        <span class="stack-itemText">npm</span>
+                      </div>
+                      <div class="stack-item">
+                        <span class="stack-itemText">Figma</span>
+                      </div>
+                      <div class="stack-item">
+                        <span class="stack-itemText">Adobe Photoshop/Illustrator</span>
+                      </div>
+                    </div>
+
+                  </mat-expansion-panel>
+
+
+                  <mat-expansion-panel (afterExpand)="handleContactsExpand()" style="margin: 10px 0"
+                                       [(expanded)]="contactsPanelExpanded">
+                    <mat-expansion-panel-header>
+                      <mat-panel-title #contactsPanel>
+                        {{'about.details.contacts' | translate}}
+                      </mat-panel-title>
+                    </mat-expansion-panel-header>
+
+                    <mat-list role="list">
+                      <mat-list-item class="about-details" role="listitem">
+                        <span>Email: <b>batikysss@gmail.com</b></span>
+                      </mat-list-item>
+                      <mat-list-item class="about-details" role="listitem"><span>Telegram: <b><a class="link"
+                                                                                                 target="_blank"
+                                                                                                 href="https://teleg.run/winexcel">@Winexcel</a></b></span>
+                      </mat-list-item>
+                    </mat-list>
+
+                  </mat-expansion-panel>
+
+
+                </mat-expansion-panel>
+              </mat-accordion>
+
+              <p class="">{{'about.bio.first' | translate}}</p>
+              <p class="">{{'about.bio.second' | translate}}</p>
+
+              <p>{{'about.bio.third' | translate}}</p>
+              <ul>
+                <li>JavaScript</li>
+                <li>Angular 9</li>
+                <li>React.JS</li>
+                <li>Bootstrap</li>
+                <li>Node.JS (Express.JS, CodoAPI)</li>
+                <li>SQL (MYSQL)</li>
+                <li>Docker</li>
+              </ul>
+
+              <p>{{'about.bio.fourth' | translate}}</p>
+              <p>{{'about.bio.fifth' | translate}}</p>
+
+              <p>{{'about.bio.sixth' | translate}} <a
+                  target="_blank" class="link link__white link__underlined"
+                  href="https://www.behance.net/winexcel">Behance</a></p>
+
+
+              <p class="">{{'about.bio.seventh' | translate}}</p>
+
+              <span class="about-btnContainer" [ngsReveal]="{container: '.main-container'}">
+                <button class="btn btn__white about-btn"
+                        (click)="getInTouch()">{{'about.getInTouch' | translate}}</button>
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- GLOBAL GALLERY -->
+      <app-ng-photo-swipe [imgList]="projects.currentImgList" [container]="mainContainer"
+                          [(isOpen)]="galleryIsOpen"></app-ng-photo-swipe>
+
+      <section id="projects" class="projects">
+        <div class="container">
+          <div class="row">
+            <h3 class="header" [ngsReveal]="{container: '.main-container'}"> {{'projects.header' | translate}}</h3>
+          </div>
+          <div class="projects-list" [ngsRevealSet]="{container: '.main-container'}" ngsSelector=".project">
+            <div class="project">
+              <div class="row">
+                <div class="col-lg-4 col-sm-12">
+
+                  <div class="row">
+                    <div class="project-headerContainer col-12 col-sm-auto">
+                      <h3 class="project-header animated fadeInLeft">
+                        {{'projects.likesBattle.header' | translate}}
+                      </h3>
+                    </div>
+                    <div class="col-12 col-sm-auto">
+                      <span class="project-license">$ {{'projects.projectLicenseCommerce' | translate}}</span>
+                    </div>
+                  </div>
+
+                  <div class="project-description">
+                    <p class="project-paragraph"><a target="_blank" href="https://vk.com/miniapps" class="link link__bold link__underlined">{{'projects.likesBattle.paragraphs.first' | translate}}</a></p>
+                    <p class="project-paragraph">{{'projects.likesBattle.paragraphs.second' | translate}}</p>
+                    <p class="project-paragraph">{{'projects.likesBattle.paragraphs.third' | translate}}</p>
+                  </div>
+
+                  <mat-accordion class="project-whatidid">
+                    <mat-expansion-panel>
+                      <mat-expansion-panel-header>
+                        <mat-panel-title>
+                          {{'projects.whatIDid' | translate}}
+                        </mat-panel-title>
+                      </mat-expansion-panel-header>
+                      {{'projects.likesBattle.whatIDid' | translate}}
+                    </mat-expansion-panel>
+                  </mat-accordion>
+
+                  <div class="project-stack stack">
+                    <div class="stack-item">
+                      <span class="stack-itemText">Node.JS</span>
+                    </div>
+                    <div class="stack-item">
+                      <span class="stack-itemText">CodoAPI</span>
+                    </div>
+                    <div class="stack-item">
+                      <span class="stack-itemText">React.JS</span>
+                    </div>
+                    <div class="stack-item">
+                      <span class="stack-itemText">Docker</span>
+                    </div>
+                    <div class="stack-item">
+                      <span class="stack-itemText">NGINX</span>
+                    </div>
+                    <div class="stack-item">
+                      <span class="stack-itemText">FIGMA</span>
+                    </div>
+                    <div class="stack-item">
+                      <span class="stack-itemText">Photoshop</span>
+                    </div>
+                    <div class="stack-item">
+                      <span class="stack-itemText">Adobe Illustrator</span>
+                    </div>
+                    <div class="stack-item">
+                      <span class="stack-itemText">Redis</span>
+                    </div>
+                    <div class="stack-item">
+                      <span class="stack-itemText">MYSQL</span>
+                    </div>
+                  </div>
+                  <div class="project-actions">
+
+                    <a href="https://vk.com/app7023851" target="_blank">
+                      <button class="btn">{{'projects.projectBtn' | translate}}</button>
+                    </a>
+                    <a href="https://www.behance.net/gallery/82893145/lajkobatly-IOS-Android-Mobile-App"
+                       target="_blank">
+                      <button class="btn btn__noborder">{{'projects.presentationBtn' | translate}}</button>
+                    </a>
+                  </div>
+                </div>
+                <div class="col-lg-8 col-sm-12 d-flex justify-content-center align-items-start">
+                  <div class="project-thumbnail">
+                    <a href="https://vk.com/app7023851" target="_blank">
+                      <app-image-hovered src="../assets/img/projects/likesBattle/1.jpg"
+                                         buttonText="{{'projects.viewProject' | translate}}"></app-image-hovered>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="project">
+              <div class="row">
+                <div class="col-lg-4 col-sm-12">
+
+                  <div class="row">
+                    <div class="project-headerContainer col-12 col-sm-auto">
+                      <h3 class="project-header animated fadeInLeft">
+                        {{'projects.mim.header' | translate}}
+                      </h3>
+                    </div>
+                    <div class="col-12 col-sm-auto">
+                      <span class="project-license">$ {{'projects.projectLicenseCommerce' | translate}}</span>
+                    </div>
+                  </div>
+
+                  <div class="project-description">
+                    <p class="project-paragraph"><a target="_blank" href="https://vk.com/miniapps" class="link link__bold link__underlined">{{'projects.mim.paragraphs.first' | translate}}</a></p>
+                    <p class="project-paragraph">{{'projects.mim.paragraphs.second' | translate}}</p>
+                    <p>{{'projects.mim.paragraphs.third' | translate}}</p>
+                    <p>{{'projects.mim.paragraphs.fourth' | translate}}</p>
+                  </div>
+
+                  <mat-accordion class="project-whatidid">
+                    <mat-expansion-panel>
+                      <mat-expansion-panel-header>
+                        <mat-panel-title>
+                          {{'projects.whatIDid' | translate}}
+                        </mat-panel-title>
+                      </mat-expansion-panel-header>
+                      {{'projects.mim.whatIDid' | translate}}
+                    </mat-expansion-panel>
+                  </mat-accordion>
+
+                  <div class="project-stack stack">
+                    <div class="stack-item">
+                      <span class="stack-itemText">Node.JS</span>
+                    </div>
+                    <div class="stack-item">
+                      <span class="stack-itemText">CodoAPI</span>
+                    </div>
+                    <div class="stack-item">
+                      <span class="stack-itemText">React.JS</span>
+                    </div>
+                    <div class="stack-item">
+                      <span class="stack-itemText">Leaflet.JS</span>
+                    </div>
+                    <div class="stack-item">
+                      <span class="stack-itemText">MYSQL</span>
+                    </div>
+                  </div>
+                  <div class="project-actions">
+
+                    <a href="https://vk.com/masterimodel" target="_blank">
+                      <button class="btn">{{'projects.projectBtn' | translate}}</button>
+                    </a>
+                  </div>
+                </div>
+                <div class="col-lg-8 col-sm-12 d-flex justify-content-center align-items-start">
+                  <div class="project-thumbnail">
+                    <a href="https://vk.com/masterimodel" target="_blank">
+                      <app-image-hovered src="../assets/img/projects/mim/1.jpg"
+                                         buttonText="{{'projects.viewProject' | translate}}"></app-image-hovered>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="project">
+              <div class="row">
+                <div class="col-lg-4 col-sm-12">
+
+                  <div class="row">
+                    <div class="project-headerContainer col-12 col-sm-auto">
+                      <h3 class="project-header animated fadeInLeft">
+                        {{'projects.tests.header' | translate}}
+                      </h3>
+                    </div>
+                    <div class="col-12 col-sm-auto">
+                      <span class="project-license project-license__practice"># {{'projects.projectLicensePractice' | translate}}</span>
+                    </div>
+                  </div>
+
+                  <div class="project-description">
+                    <p class="project-paragraph"><a target="_blank" href="https://vk.com/miniapps" class="link link__bold link__underlined">{{'projects.tests.paragraphs.first' | translate}}</a></p>
+                    <p class="project-paragraph">{{'projects.tests.paragraphs.second' | translate}}</p>
+                  </div>
+
+                  <mat-accordion class="project-whatidid">
+                    <mat-expansion-panel>
+                      <mat-expansion-panel-header>
+                        <mat-panel-title>
+                          {{'projects.whatIDid' | translate}}
+                        </mat-panel-title>
+                      </mat-expansion-panel-header>
+                      {{'projects.tests.whatIDid' | translate}}
+                    </mat-expansion-panel>
+                  </mat-accordion>
+
+
+                  <div class="project-stack stack">
+                    <div class="stack-item">
+                      <span class="stack-itemText">Figma</span>
+                    </div>
+                    <div class="stack-item">
+                      <span class="stack-itemText">Photoshop</span>
+                    </div>
+                    <div class="stack-item">
+                      <span class="stack-itemText">Adobe Illustrator</span>
+                    </div>
+                  </div>
+                  <div class="project-actions">
+
+                    <a href="https://www.behance.net/gallery/82802417/testy-IOS-Android-Mobile-App" target="_blank">
+                      <button class="btn">{{'projects.presentationBtn' | translate}}</button>
+                    </a>
+                  </div>
+                </div>
+                <div class="col-lg-8 col-sm-12 d-flex justify-content-center align-items-start">
+                  <div class="project-thumbnail">
+                    <a href="https://www.behance.net/gallery/82802417/testy-IOS-Android-Mobile-App" target="_blank">
+                      <app-image-hovered src="../assets/img/projects/tests/1.jpg"
+                                         buttonText="{{'projects.viewPresentation' | translate}}"></app-image-hovered>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="project">
+              <div class="row">
+                <div class="col-lg-4 col-sm-12">
+
+                  <div class="row">
+                    <div class="project-headerContainer col-12 col-sm-auto">
+                      <h3 class="project-header animated fadeInLeft">
+                        {{'projects.codoAPI.header' | translate}}
+                      </h3>
+                    </div>
+                    <div class="col-12 col-sm-auto">
+                      <span class="project-license project-license__practice"># {{'projects.projectLicensePractice' | translate}}</span>
+                    </div>
+                  </div>
+
+                  <div class="project-description">
+                    <p class="project-paragraph" [innerHTML]="('projects.codoAPI.paragraphs.first' | translate)"></p>
+                    <p class="project-paragraph">{{'projects.codoAPI.paragraphs.second' | translate}}</p>
+                  </div>
+
+                  <mat-accordion class="project-whatidid">
+                    <mat-expansion-panel>
+                      <mat-expansion-panel-header>
+                        <mat-panel-title>
+                          {{'projects.whatIDid' | translate}}
+                        </mat-panel-title>
+                      </mat-expansion-panel-header>
+                      {{'projects.codoAPI.whatIDid' | translate}}
+                    </mat-expansion-panel>
+                  </mat-accordion>
+
+                  <div class="project-stack stack">
+                    <div class="stack-item">
+                      <span class="stack-itemText">Node.JS</span>
+                    </div>
+                    <div class="stack-item">
+                      <span class="stack-itemText">Express.JS</span>
+                    </div>
+                  </div>
+                  <div class="project-actions">
+                    <a href="https://github.com/cobidev/simplefolio" target="_blank">
+                      <button class="btn">{{'projects.sourceBtn' | translate}}</button>
+                    </a>
+                  </div>
+                </div>
+                <div class="col-lg-8 col-sm-12 d-flex justify-content-center align-items-start">
+                  <div class="project-thumbnail">
+                    <a href="https://github.com/cobidev/simplefolio" target="_blank">
+                      <app-image-hovered src="../assets/img/projects/codoapi/1.jpg"
+                                         buttonText="{{'projects.viewSource' | translate}}"></app-image-hovered>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="project">
+              <div class="row">
+                <div class="col-lg-4 col-sm-12">
+
+                  <div class="row">
+                    <div class="project-headerContainer col-12 col-sm-auto">
+                      <h3 class="project-header animated fadeInLeft">
+                        {{'projects.darkTraffic.header' | translate}}
+                      </h3>
+                    </div>
+                    <div class="col-12 col-sm-auto">
+                      <span class="project-license">$ {{'projects.projectLicenseCommerce' | translate}}</span>
+                    </div>
+                  </div>
+
+                  <div class="project-description">
+                    <p class="project-paragraph" [innerHTML]="('projects.darkTraffic.paragraphs.first' | translate)"></p>
+                    <p class="project-paragraph">{{'projects.darkTraffic.paragraphs.second' | translate}}</p>
+                  </div>
+
+                  <mat-accordion class="project-whatidid">
+                    <mat-expansion-panel>
+                      <mat-expansion-panel-header>
+                        <mat-panel-title>
+                          {{'projects.whatIDid' | translate}}
+                        </mat-panel-title>
+                      </mat-expansion-panel-header>
+                      {{'projects.darkTraffic.whatIDid' | translate}}
+                    </mat-expansion-panel>
+                  </mat-accordion>
+
+                  <div class="project-stack stack">
+                    <div class="stack-item">
+                      <span class="stack-itemText">Apache</span>
+                    </div>
+                    <div class="stack-item">
+                      <span class="stack-itemText">CodeIgniter</span>
+                    </div>
+                    <div class="stack-item">
+                      <span class="stack-itemText">MYSQL</span>
+                    </div>
+                    <div class="stack-item">
+                      <span class="stack-itemText">RAD Studio</span>
+                    </div>
+                    <div class="stack-item">
+                      <span class="stack-itemText">DCEF</span>
+                    </div>
+                    <div class="stack-item">
+                      <span class="stack-itemText">Bootstrap 3</span>
+                    </div>
+                    <div class="stack-item">
+                      <span class="stack-itemText">jQuery</span>
+                    </div>
+                  </div>
+                  <div class="project-actions">
+                    <a href="https://www.youtube.com/channel/UCgYqawRm9JJK8pkR04AWXUw/videos"
+                       target="_blank">
+                      <button class="btn">{{'projects.projectBtn' | translate}}</button>
+                    </a>
+                  </div>
+                </div>
+                <div class="col-lg-8 col-sm-12 d-flex justify-content-center align-items-start">
+                  <div class="project-thumbnail">
+                    <app-image-hovered (click)="openGallery('DarkTraffic')"
+                                       src="../assets/img/projects/darktraffic/1.jpg"
+                                       buttonText="{{'projects.viewGallery' | translate}}"
+                    ></app-image-hovered>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact main-bg" class="contact bg-main">
+        <div class="container">
+          <div class="row">
+            <h3 class="header" [ngsReveal]="{container: '.main-container'}">{{'contacts.header' | translate}}</h3>
+          </div>
+          <div class="row">
+            <div class="col-12 d-flex justify-content-center">
+              <p class="contact-text" [ngsReveal]="{container: '.main-container'}">{{'contacts.text' | translate}}</p>
+            </div>
+            <div class="col-12 d-flex justify-content-center">
+              <button class="btn btn__white contact-btn" [ngsReveal]="{container: '.main-container'}"
+                      (click)="getInTouch()">{{'contacts.btn' | translate}}</button>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-12 d-flex justify-content-center">
+              <button (click)="topElement.scrollIntoView({behavior: 'smooth', block: 'center'})"
+                      [ngsReveal]="{container: '.main-container'}"
+                      class="btn btn__text footer-icon footer-icon__top ">
+                <i class="fas fa-angle-up"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12 d-flex justify-content-center">
+              <div class="footer-social social-icons" [ngsReveal]="{container: '.main-container'}">
+                <i class="footer-icon social-icon fab fa-twitter"></i>
+                <i class="footer-icon social-icon fab fa-codepen"></i>
+                <i class="footer-icon social-icon fab fa-linkedin-in"></i>
+                <i class="footer-icon social-icon fab fa-github"></i>
+              </div>
+            </div>
+          </div>
+
+          <hr class="footer-delimiter">
+
+          <div class="row">
+            <div class="col-12 d-flex justify-content-center">
+              <div class="footer-copyright" [ngsReveal]="{container: '.main-container'}">© {{curentYear}} - Made with <i
+                class="fas fa-heart"></i> by
+                <span>CodoBear</span></div>
+            </div>
+          </div>
+
+        </div>
+      </footer>
+
+    </mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+

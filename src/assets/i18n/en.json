@@ -1,0 +1,113 @@
+{
+  "sidenav": {
+    "main": "Main",
+    "about": "About",
+    "projects": "Projects",
+    "contacts": "Contacts",
+    "langHeader": "Language"
+  },
+  "toolbar": {
+    "switchTheme": "Night Theme"
+  },
+  "main": {
+    "intro": "Hi, my name is",
+    "name": "Dmitry",
+    "typingsTextMain": [
+      "I am a web-developer.",
+      "I have experience more than 1 year.",
+      "I also know UI/UX :)",
+      "I am glad to work on interesting projects 😉"
+    ],
+    "btn": "Know more"
+  },
+  "about": {
+    "header": "About",
+    "details": {
+      "header": "Show details",
+      "citizenship": "Citizenship: Russia",
+      "nationality": "Nationality: Russian",
+      "birthday": "Date of Birth: March 7, 1997 (23)",
+      "occupation": "Occupation: IT",
+      "currentSpecialization": "Current specialization: Frontend",
+      "languages": "Languages: Russian, English(reading documentation, writing)",
+      "living": "Living: Novosibirsk",
+      "workPermit": "Work permit: Russia",
+      "willingnessToRelocate": "Willingness to relocate: No",
+      "education": "Education: Siberian State University Of Telecommunications And Information Sciences, Economic Software Developer, Bachelor, 2019.",
+      "stack": "Stack",
+      "contacts": "Contacts"
+    },
+    "bio": {
+      "first": "I have developed a passion for coding since school, however, it wasn’t until one year ago that I started doing it as a full-time job. I am constantly striving to get better at it, learn new skills, hone the ones I already possess.",
+      "second": "I am passionate about creating scalable software based on micro-service architecture, creating efficient solutions and learning about IT professional development every day.",
+      "third": "Currently, I am a full-stack developer with an emphasis on:",
+      "fourth": "As a full-stack, I’m quite comfortable with latest trends and standards in Frontend and Backend.",
+      "fifth": "Now I’m actively learning Angular. If a project requires any additional knowledge that is not currently part of my stack, I am ready to learn it quickly.",
+      "sixth": "I also like to draw UI/UX interfaces, preferably for mobile interfaces applications, my modest portfolio is available on",
+      "seventh": "Feel free to contact me at any time."
+    },
+    "getInTouch": "Get In Touch"
+  },
+  "projects": {
+    "header": "Projects",
+    "projectLicenseCommerce": "Commercial",
+    "projectLicensePractice": "Practical",
+    "whatIDid": "What I did",
+    "projectBtn": "Project",
+    "sourceBtn": "Source Code",
+    "presentationBtn": "Presentation",
+    "viewSource": "View Source",
+    "viewPresentation": "View Presentation",
+    "viewProject": "View Project",
+    "viewGallery": "Gallery",
+
+    "likesBattle": {
+      "header": "Likes Battle",
+      "paragraphs": {
+        "first": "VK Mini-App.",
+        "second": "An entertainment application, the implementation of photobattles with elements of dating.",
+        "third": "Shopping and advertising inside the application."
+      },
+      "whatIDid": "I developed the application design and then implemented the full-stack on Node.JS and React.JS."
+    },
+    "mim": {
+      "header": "Master and model",
+      "paragraphs": {
+        "first": "VK Mini-App.",
+        "second": "An app where all masters of the country in the sphere of beauty are assembled in one place.",
+        "third": "You do not need to waste time searching for an address, group or site with examples of work. You do not need to send your proposal about searching the Model by groups and chat rooms.",
+        "fourth": "Find masters and models in Russian cities near your home or work. Now it is simple and easy."
+      },
+      "whatIDid": "I implemented backend on Node.JS and CodoAPI."
+    },
+    "tests": {
+      "header": "Tests",
+      "paragraphs": {
+        "first": "VK Mini-App.",
+        "second": "An entertaining application in which the user can find tests interesting to him, receive test results, share with friends."
+      },
+      "whatIDid": "I created prototypes and then drew the design in Figma."
+    },
+    "codoAPI": {
+      "header": "CodoAPI",
+      "paragraphs": {
+        "first": "Lightweight <b>Node.JS</b> framework for quickly deploying <b>API</b>.",
+        "second": "Allows you to quickly create an API interface with the structure of the VK-based API. It has built-in data validation modules, error output."
+      },
+      "whatIDid": "I developed from scratch a small API framework using Express.JS."
+    },
+    "darkTraffic": {
+      "header": "DarkTraffic",
+      "paragraphs": {
+        "first": "<b>Chromium</b> based traffic exchange system.",
+        "second": "The project allows users to earn money by selling their traffic."
+      },
+      "whatIDid": "I organized a team of 3 developers and led the development of the browser on the Chromium engine. I designed a database, developed a personal account on jQuery."
+    }
+  },
+  "contacts": {
+    "header": "Contacts",
+    "text": "Would you like to work with me? Awesome!",
+    "btn": "Get In Touch"
+  }
+}
